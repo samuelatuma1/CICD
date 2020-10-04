@@ -36,7 +36,7 @@ class FlightTestCase(TestCase):
     def test_invalid_flight_destination(self):
         a1 = Airport.objects.get(code="AAA")
         f = Flight.objects.get(origin=a1, destination=a1)
-        self.assertTrue(f.is_valid_flight())
+        self.assertFalse(f.is_valid_flight())
 
     def test_invalid_flight_duration(self):
         a1 = Airport.objects.get(code="AAA")
